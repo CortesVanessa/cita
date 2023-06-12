@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"  dir="ltr">
+  
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+  
+  <title>Agenda de Citas</title>
+  
+  <script>
+   
+// Función para validar el formulario antes de enviarlo
+function validarFormulario() {
+// Obtener los valores de los campos del formulario
+var nombre = document.getElementById("nombre").value;
+var fecha = document.getElementById("fecha").value;
+var hora = document.getElementById("hora").value;
+
+// Validar que se hayan llenado todos los campos
+if (nombre === "" || fecha === "" || hora === "") {
+alert("Por favor complete todos los campos del formulario.");
+return false;
+}
+ 
+
+
+alert("Formulario enviado correctamente.");
+
+}
+
+//agregar mascota a la lista
+            
+function agregarMascota() {
+//var tipo = document.querySelector('input[name="opciones"]:checked').value;
+var nombre = document.getElementById("nombre").value;
+var fecha = document.getElementById("fecha").value;
+var hora= document.getElementById("hora").value;
+
+var fila = "<tr><td>" + nombre + "</td><td>" + fecha + "</td><td>" + hora+ "</td><td>";
+
+document.getElementById("mascotas").innerHTML += fila;
+}
+
+
+</script>    
+
+
+
+
+</head>
+<body>
+ 
+  <h1>Agenda Tu Cita Neni <3 </h1>
+
+  <form  action="conexion.php" method="post">
+
+    <label for="nombre1">NOMBRE:</label>
+    <input type="text" id="nombre" name="nombre"><br>
+
+    <label for="fecha1">FECHA:</label>
+    <input type="date" id="fecha" name="fecha" required><br>
+
+    <label for="hora1">HORA:</label>
+    <input type="time" id="hora" name="hora" required><br>
+    <input type="submit" value="enviar">
+    <input type="button" value="Agendar Cita" onclick="agregarMascota()">
+    
+  </form>
+  <H3>DATOS REGISTRADOS</H3>
+  <div id="citasContainer">
+    <!-- Aquí se mostrarán las citas agendadas -->
+    <table>
+			<thead>
+				<tr>
+					
+					<th>Nombre----------</th>
+					<th>fecha---------</th>
+					<th>hora</th>
+				</tr>
+			</thead>
+			<tbody id="mascotas">
+			</tbody>
+		</table>
+  
+  </div>
+  
+</body>
+
+
+
+
+</html>
